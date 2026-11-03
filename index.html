@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayush Lodha · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#080d16;--card:#0f1726;--bd:#1c2a42;--fg:#e8eef9;--mut:#93a1ba;--ac:#60a5fa;--ac2:#3b82f6;--acbg:#12233f;
+--mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;--sans:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 var(--sans)}
+a{color:var(--ac);text-decoration:none}
+.w{max-width:860px;margin:0 auto;padding:0 22px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-size:14px;gap:12px;flex-wrap:wrap}
+nav b{font:600 14px var(--mono);color:var(--ac)}
+nav div a{color:var(--mut);margin-left:20px}nav div a:hover{color:var(--ac)}
+.hero{padding:70px 0 40px;position:relative}
+.sym{font:13px var(--mono);color:var(--ac);opacity:.35;letter-spacing:.2em;margin-bottom:26px;overflow:hidden;white-space:nowrap}
+.hi{font:600 15px var(--mono);color:var(--ac);margin:0}
+h1{font-size:clamp(38px,8vw,64px);line-height:1.05;margin:10px 0 8px;font-weight:800;letter-spacing:-.03em}
+h1 span{background:linear-gradient(90deg,#93c5fd,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:20px;color:var(--mut);margin:0 0 24px}
+.soc{display:flex;gap:12px}
+.ic{width:44px;height:44px;border:1px solid var(--bd);background:var(--card);border-radius:12px;display:grid;place-items:center;color:var(--fg);cursor:pointer;padding:0}
+.ic:hover{border-color:var(--ac);color:var(--ac);box-shadow:0 0 0 4px var(--acbg)}
+.ic svg{width:20px;height:20px}
+section{padding:54px 0 10px}
+h2{font-size:30px;margin:0 0 6px;font-weight:800;letter-spacing:-.02em}
+h2::after{content:"";display:block;width:46px;height:4px;border-radius:2px;background:var(--ac2);margin:10px 0 26px}
+p{color:var(--mut);margin:0 0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span,.tags span{font:12px var(--mono);color:var(--ac);background:var(--acbg);border:1px solid var(--bd);padding:3px 10px;border-radius:999px}
+.job{position:relative;padding:0 0 30px 26px;border-left:2px solid var(--bd)}
+.job::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--ac2);box-shadow:0 0 0 4px var(--bg)}
+.job h3{font-size:24px;line-height:1.25;margin:0;font-weight:700}
+.org{font-size:15px;color:var(--ac);margin-top:3px}
+.date{font:12px var(--mono);color:var(--mut);margin:4px 0 10px}
+ul{margin:0;padding-left:18px;color:var(--mut)}li{margin:5px 0}
+.proj{display:grid;grid-template-columns:auto 1fr;gap:18px;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px;margin-bottom:16px;transition:.2s}
+.proj:hover{border-color:var(--ac2);transform:translateY(-2px)}
+.n{font:700 28px var(--mono);color:var(--ac2);opacity:.7}
+.proj h3{margin:0 0 6px;font-size:20px}
+.proj p{margin:0 0 12px;font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.repo{font:600 13px var(--mono)}
+.priv{font:600 13px var(--mono);color:var(--mut)}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.sk>div{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px}
+.sk h4{margin:0 0 10px;font:600 12px var(--mono);color:var(--mut);text-transform:uppercase;letter-spacing:.1em}
+.edu{margin-bottom:26px}
+footer{margin-top:60px;border-top:1px solid var(--bd);padding:36px 0 48px;text-align:center}
+footer .soc{justify-content:center;margin:16px 0}
+footer .l a{color:var(--mut);margin:0 10px;font-size:14px}
+footer small{display:block;margin-top:14px;color:var(--mut);font-size:13px}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ac2);color:#fff;font:13px var(--mono);padding:8px 14px;border-radius:8px;opacity:0;pointer-events:none;transition:.25s}
+#toast.on{opacity:1}
+@media(max-width:520px){.proj{grid-template-columns:1fr;gap:6px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.proj{transition:none}}
+</style>
+</head>
+<body>
+<div class="w">
+<nav><div><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a></div></nav>
+
+<header class="hero">
+<div class="sym">&lt;/&gt; =&gt; [] &lt;&gt; () :: == ++ ;</div>
+<p class="hi">Hello!</p>
+<h1>I'm <span>Ayush Lodha</span></h1>
+<p class="sub">Software Developer · Security &amp; AI</p>
+<div class="soc">
+<a class="ic" href="https://github.com/AyushLodha71" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+<a class="ic" href="https://linkedin.com/in/ayush-a-lodha" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+<button class="ic em" type="button" aria-label="Copy email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></button>
+</div>
+</header>
+
+<section id="about">
+<h2>About Me</h2>
+<p>I break things on purpose so they don't get broken by accident. I'm a Math student at the University of Waterloo who builds at the intersection of AI, security and data: vulnerability pipelines that triage themselves, fraud detectors trained on 590K+ transactions, and agent systems that automate the boring parts of testing.</p>
+<p>I like problems with a clear before and after: a pipeline that used to take an hour now takes a second, a scanner that used to flag everything now flags what matters. Outside of that, I'm chipping away at OverTheWire's Natas challenges and playing chess.</p>
+<div class="chips"><span>Python</span><span>Java</span><span>FastAPI</span><span>Spring Boot</span><span>Linux</span><span>LLM Agents</span></div>
+</section>
+
+<section id="experience">
+<h2>Experience</h2>
+<div class="job"><h3>AI Automation Developer</h3><div class="org">Definity Financial · Co-op, Quality Engineering</div><div class="date">Sep 2026 - Present</div>
+<ul><li>Modify and extend AI agents used by the Quality Engineering team</li><li>Orchestrate 5+ AI agents to build a software testing life cycle (STLC) pipeline</li><li>Manage all of the QE agentic AI documentation</li></ul></div>
+<div class="job"><h3>Software Developer</h3><div class="org">Help Us Defend · Volunteer</div><div class="date">Jul 2026 - Present</div>
+<ul><li>Fixed 3 issues in the Flutter app: 2 medium and 1 easy</li><li>Currently working on AI analysis tool integration, a high priority issue</li><li>Contributing to a nonprofit focused on online safety for vulnerable people</li></ul></div>
+<div class="job"><h3>Technical Lead</h3><div class="org">Riipen Labs x 2nd Nature Safety · Remote</div><div class="date">Mar 2026 - Apr 2026</div>
+<ul><li>Evaluated 10+ platforms in an independent research and analysis project</li><li>Built a cost-benefit framework and delivered recommendations with timelines and risk trade-offs</li></ul></div>
+<div class="job"><h3>Associate Team Lead, Communications</h3><div class="org">CISE Youth Wing · Edmonton, AB</div><div class="date">Oct 2024 - Jul 2025</div>
+<ul><li>Led a cross-functional team of about 7 across 5+ organizational events</li><li>Automated a Google Docs and Gmail workflow, saving about 2 hours per cycle</li></ul></div>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<article class="proj"><div class="n">01</div><div><h3>AI Vulnerability Scanner &amp; Reporter</h3><p>Authorized recon to report pipeline with a fail closed scope guard and LLM triage. It dropped all 163 honeypot findings and kept 22 of 29 real ones on Metasploitable 2, then drafts reports for a human to review. Scanners are ProjectDiscovery tools; I built the scope guard, orchestration, normalization and triage logic.</p><div class="tags"><span>Python</span><span>subfinder</span><span>httpx</span><span>nuclei</span><span>Groq LLM</span></div><a class="repo" href="https://github.com/AyushLodha71/ai-vulnerability-scanner">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">02</div><div><h3>SecureChat</h3><p>Encrypted chat where the server only relays ciphertext and never sees a plaintext message. A Python WebSocket server pairs with a browser client built on the WebCrypto API, where each side generates its own key pair locally. Key agreement uses ECDH P-256, and messages are encrypted end to end with AES-GCM, so the relay has zero knowledge of what it's forwarding.</p><div class="tags"><span>Python</span><span>WebSocket</span><span>WebCrypto</span><span>ECDH P-256</span><span>AES-GCM</span></div><a class="repo" href="https://github.com/AyushLodha71/SecureChat">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">03</div><div><h3>AI-Docs</h3><p>A full-stack collaborative document editor built solo in about 10 days. FastAPI serves the backend, MySQL stores documents and permissions, and Redis over WebSocket keeps multiple editors' changes in sync in real time. Role-based access control governs who can view or edit a document, and the Gemini API powers AI-assisted editing directly inside the document, built on a Quill.js frontend.</p><div class="tags"><span>FastAPI</span><span>MySQL</span><span>Redis</span><span>WebSocket</span><span>JavaScript</span><span>Quill.js</span><span>Gemini API</span></div><a class="repo" href="https://github.com/AyushLodha71/AI-Docs">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">04</div><div><h3>CC3K: ChamberCrawler3000</h3><p>A C++ roguelike built for CS 246 with two teammates, Richard and Joshua. I own the Grid, Hoard and Chamber systems: point generation, dragon pair placement, and the comparison logic used across the game. The design went through several iterations, including a three-tier Character to Player/Enemy to leaf class hierarchy, a single module to resolve C++20 circular imports, and a verifyMove-based validation step so the grid's move logic stays a simple writer rather than a decision-maker.</p><div class="tags"><span>C++</span><span>OOP design</span><span>Team project</span></div><a class="repo" href="https://github.com/Richard-luyt/CC3K">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">05</div><div><h3>AGAMI-AI</h3><p>A voice-driven automation agent. Spoken input is converted to text, interpreted by Gemini, and turned into concrete actions like opening applications, reading and writing files, and running scripts. Gemini's vision API gives the agent screen awareness so it can react to what's currently displayed, and it's built with a modular architecture so new actions can be added without touching the core loop.</p><div class="tags"><span>Python</span><span>Gemini API</span></div><a class="repo" href="https://github.com/AyushLodha71/AGAMI-AI">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">06</div><div><h3>Keyware</h3><p>A defensive malware-analysis project centered on a keylogger-class threat. Rather than shipping an offensive tool, the repo documents how the threat behaves, the indicators of compromise it leaves behind, and the incident-response steps a defender would take, written up in DEFENSE.md and CASES.md. It's meant to be read the way a security analyst would read a threat report.</p><div class="tags"><span>Python</span><span>IOC detection</span><span>Incident documentation</span></div><a class="repo" href="https://github.com/AyushLodha71/Keyware">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">07</div><div><h3>ForkBomber</h3><p>A small, controlled demonstration of fork-bomb-style process exhaustion on Linux: a bash script that recursively copies and re-executes itself, spawning child processes until a depth condition stops it. A second script benchmarks how the system behaves under that load. The point is using it as a concrete way to study process limits (ulimit) and the mitigations that stop this kind of exhaustion from taking a system down.</p><div class="tags"><span>Bash</span><span>Linux</span><span>Process limits</span></div><a class="repo" href="https://github.com/AyushLodha71/ForkBomber">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">08</div><div><h3>Splitwise Mobile</h3><p>An expense-splitting app recreating Splitwise's core functionality end to end. The backend is a Spring Boot REST API backed by MySQL, containerized with Docker and deployed on Render, with an Android frontend built in Android Studio talking to it over REST. The project includes unit and integration tests and full technical documentation covering the API design and data model.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>MySQL</span><span>Docker</span><span>Android Studio</span></div><a class="repo" href="https://github.com/AyushLodha71/Splitwise-Mobile">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">09</div><div><h3>FraudGraph</h3><p>A fraud-detection pipeline trained on 590K+ IEEE-CIS transactions. A class-weighted Random Forest classifier handles the heavy imbalance between legitimate and fraudulent transactions, paired with Z-score anomaly detection across engineered features. Every decision is logged to a SHA-256 and ECDSA-signed audit trail, with documentation covering the empirical reasoning behind each modeling choice and the audit trail structured to align with FINTRAC-style compliance standards.</p><div class="tags"><span>Python</span><span>pandas</span><span>scikit-learn</span><span>NumPy</span><span>Matplotlib</span><span>ECDSA</span></div><a class="repo" href="https://github.com/AyushLodha71/FraudGraph">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">10</div><div><h3>BaitBlock</h3><p>An Android phishing-link inspector built with a teammate. It combines rules-based detection and Bloom filters for fast lookups with DNS-level interception through Android's VpnService, so suspicious links can be flagged before a user reaches them. The build is split into an interception layer, a share-sheet intake flow so links can be sent to the app from anywhere on the phone, and a first-run consent flow that explains what the app does before it's set as the default handler.</p><div class="tags"><span>Kotlin</span><span>Android</span><span>VpnService</span><span>Bloom filters</span></div><a class="repo" href="https://github.com/MrunalKankarej/BaitBlock">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">11</div><div><h3>Echosphere</h3><p>A Spotify-style Android music app built around Jetpack Compose for the UI and Media3/ExoPlayer for playback, paired with a planned Node.js backend using Cloudflare R2 for audio storage. It's a personal project, built primarily for my own and my family's use, and one I keep returning to outside of coursework and co-op work.</p><div class="tags"><span>Kotlin</span><span>Jetpack Compose</span><span>Media3/ExoPlayer</span><span>Node.js</span></div><a class="repo" href="https://github.com/AyushLodha71/Echosphere">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">12</div><div><h3>Resume Automator</h3><p>A tool for generating tailored resumes and cover letters for co-op applications. <em>Description pending confirmation.</em></p><div class="tags"><span>Python</span></div><a class="repo" href="https://github.com/AyushLodha71/Resume_Automator">GitHub repo ↗</a></div></article>
+<article class="proj"><div class="n">13</div><div><h3>JPMorgan Chase Virtual Job Simulation</h3><p>Completed JPMorgan Chase's Software Engineering Virtual Experience. The simulation involved building a Spring Boot backend that uses Apache Kafka to process financial transaction events, backed by an H2 database and exposed through REST APIs, along with writing unit tests for the transaction-processing logic.</p><div class="tags"><span>Java</span><span>Spring Boot</span><span>Apache Kafka</span><span>REST APIs</span><span>H2</span></div><a class="repo" href="https://github.com/AyushLodha71/JPMC-Virtual-Job-Simulation-Certificate">GitHub repo ↗</a></div></article>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="sk">
+<div><h4>Languages</h4><div class="chips"><span>Python</span><span>Java</span><span>JavaScript</span><span>C</span><span>C++</span><span>Bash</span><span>SQL</span><span>Kotlin</span><span>Flutter</span><span>Racket</span></div></div>
+<div><h4>Backend</h4><div class="chips"><span>FastAPI</span><span>Spring Boot</span><span>REST APIs</span><span>Apache Kafka</span><span>Redis</span><span>WebSocket</span></div></div>
+<div><h4>Databases</h4><div class="chips"><span>MySQL</span><span>MongoDB</span><span>Redis</span><span>H2</span></div></div>
+<div><h4>Security</h4><div class="chips"><span>Linux CLI</span><span>SSH</span><span>OpenSSL</span><span>Burp Suite</span><span>SHA-256 / ECDSA</span><span>ECDH / AES-GCM</span><span>Assembly (basic)</span><span>Access control</span></div></div>
+<div><h4>Data &amp; AI</h4><div class="chips"><span>pandas</span><span>NumPy</span><span>scikit-learn</span><span>Gemini API</span><span>AI agent building</span><span>Agent orchestration</span><span>Prompt design</span></div></div>
+<div><h4>Tools</h4><div class="chips"><span>Git</span><span>Docker</span><span>Postman</span><span>Maven</span><span>Android Studio</span><span>Playwright</span><span>Jira</span><span>Confluence</span></div></div>
+</div>
+</section>
+
+<section id="education">
+<h2>Education</h2>
+<div class="job edu"><h3>Bachelor of Mathematics (Honours), Co-op</h3><div class="org">University of Waterloo</div><div class="date">2025 - 2030 (expected)</div>
+<ul><li>President's Scholarship (2026)</li><li>Cumulative GPA: 85.30/100</li><li>Coursework includes object-oriented software development (C++), functional programming, linear algebra and calculus</li></ul></div>
+</section>
+
+<footer>
+<b style="font-size:18px">Ayush Lodha</b>
+<div class="soc"><a class="ic" href="https://github.com/AyushLodha71" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+<a class="ic" href="https://linkedin.com/in/ayush-a-lodha" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+<button class="ic em" type="button" aria-label="Copy email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></button></div>
+<div class="l"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a></div>
+<small>© 2026 Ayush Lodha. All rights reserved.</small>
+</footer>
+</div>
+<div id="toast"></div>
+<script>
+(function(){
+document.querySelectorAll('a[href^="http"]').forEach(function(a){a.target='_blank';a.rel='noopener'});
+var t=document.getElementById('toast'),m='ayush.lodha.ca@gmail.com',tm;
+function show(s){t.textContent=s;t.classList.add('on');clearTimeout(tm);tm=setTimeout(function(){t.classList.remove('on')},2200)}
+document.querySelectorAll('.em').forEach(function(b){b.onclick=function(){
+try{navigator.clipboard.writeText(m).then(function(){show('Email copied: '+m)},function(){show(m)})}catch(x){show(m)}}});
+})();
+</script>
+</body>
+</html>
